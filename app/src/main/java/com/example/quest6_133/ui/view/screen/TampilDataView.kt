@@ -2,10 +2,12 @@ package com.example.quest6_133.ui.view.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
@@ -52,6 +54,39 @@ fun TampilView(
                     fontWeight = FontWeight.Bold)
             }
         }
+        Column (
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.White)
+                .padding(14.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ){
+            Row (
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Column {
+                    Text(text = "Nim :",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 16.sp)
+                    Text(text = mahasiswa.nim,
+                        fontWeight = FontWeight.Light,
+                        fontSize = 16.sp)
+                    Text(text = "Nama :",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 16.sp)
+                    Text(text = mahasiswa.nama,
+                        fontWeight = FontWeight.Light,
+                        fontSize = 16.sp)
+                    Text(text = "Email :",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 16.sp)
+                    Text(text = mahasiswa.email,
+                        fontWeight = FontWeight.Light,
+                        fontSize = 16.sp)
+                }
+            }
 
+        }
     }
 }
