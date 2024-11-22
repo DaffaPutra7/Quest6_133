@@ -1,5 +1,6 @@
 package com.example.quest6_133.navigation
 
+import RencanaStudiView
 import RencanaStudiViewModel
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -12,6 +13,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.quest6_133.ui.view.screen.MahasiswaFormView
 import com.example.quest6_133.ui.view.screen.SplashView
+import com.example.quest6_133.ui.view.screen.TampilView
 import com.example.quest6_133.ui.view.viewmodel.MahasiswaViewModel
 
 enum class Halaman {
@@ -54,6 +56,21 @@ fun MahasiswaApp(
                 }
             )
         }
-
+        composable(route = Halaman.RencanaStudi.name) {
+            RencanaStudiView(
+                mahasiswa = statusUI,
+                onBackButtonClicked = { navController.popBackStack() },
+                onSubmitButtonClicked = { krsViewModel.saveDataKRS(it)
+                    navController.navigate(Halaman.Tampil.name)}
+            )
+        }
+        composable(route = Halaman.Tampil.name) {
+            TampilView(
+                mahasiswa = statusUI,
+                krs = krsStateUi,
+                onResetButtonClicked = {navController.navigate(Halaman.Splash.name)},
+                onBackButtonClicked = {navController.popBackStack()}
+            )
+        }
     }
 }
