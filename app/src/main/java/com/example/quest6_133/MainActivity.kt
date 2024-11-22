@@ -21,8 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Quest6_133Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    MahasiswaApp(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
