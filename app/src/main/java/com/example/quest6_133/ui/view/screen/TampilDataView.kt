@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -86,7 +87,30 @@ fun TampilView(
                         fontSize = 16.sp)
                 }
             }
-
+            Column (modifier = Modifier.fillMaxWidth()){
+                Text(text = "Mata Kuliah peminatan yang dipilih :",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 16.sp
+                )
+                Text(text = krs.namaMK,
+                    fontWeight = FontWeight.Light,
+                    fontSize = 16.sp)
+                Text(text = "Kelas :",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 16.sp)
+                Text(text = krs.kelas,
+                    fontWeight = FontWeight.Light,
+                    fontSize = 16.sp)
+            }
+            Row (modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly){
+                Button(onClick = {onBackButtonClicked()}) {
+                    Text(text = "Kembali")
+                }
+                Button(onClick = {onResetButtonClicked()}) {
+                    Text(text = "Reset")
+                }
+            }
         }
     }
 }
