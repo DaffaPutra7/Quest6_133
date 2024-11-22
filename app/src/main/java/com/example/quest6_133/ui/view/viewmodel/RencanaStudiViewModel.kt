@@ -1,5 +1,3 @@
-package com.example.quest6_133.ui.view.viewmodel
-
 import androidx.lifecycle.ViewModel
 import com.example.quest6_133.model.RencanaStudi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,4 +17,12 @@ class RencanaStudiViewModel: ViewModel() {
         _krsState.update { stateKelas -> stateKelas.copy(kelasPilihan) }
     }
 
+    fun saveDataKRS(ls: MutableList<String>){
+        _krsState.update { status -> status.copy(
+            namaMK = ls[0],
+            kelas = ls[1]
+        ) }
+    }
+
+    fun resetDataKRS() { _krsState.update { RencanaStudi() } }
 }
